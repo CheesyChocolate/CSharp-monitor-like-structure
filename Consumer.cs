@@ -7,6 +7,10 @@ public static class ConsumerModule
 {
 	public static void Consume(Queue<int> buffer, object bufferLock, string fileName)
 	{
+
+		if (File.Exists(fileName))
+			File.Delete(fileName);
+
 		while (true)
 		{
 			int numberToWrite = 0;
